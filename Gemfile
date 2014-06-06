@@ -12,3 +12,10 @@ gemspec
 
 # To use debugger
 # gem 'debugger'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0'
+  gem 'pry'
+  gem 'pry-nav'
+  gem 'pry-stack_explorer'
+end
