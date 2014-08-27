@@ -15,8 +15,8 @@ module Game
           def satisfy(space)
             @conditions.each do |condition|
               return false if !condition.satisfy(space)
-              return true
             end
+            true
           end
 
         end

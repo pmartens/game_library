@@ -9,7 +9,7 @@ module Game
           end
 
           def satisfy(space)
-            return true
+            true
           end
 
           :private

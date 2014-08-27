@@ -79,7 +79,7 @@ describe "Monopoly::Space::Jail - " do
     allow(@monopoly.settings.dice).to receive(:double?) {true}
     jail.prisonerproperty.locked_up = true
     jail.always_action
-    jail.start_action.should be true
+    jail.start_action.should be false
     @monopoly.settings.players[0].money.should eq(1500)
   end
 
@@ -92,9 +92,11 @@ describe "Monopoly::Space::Jail - " do
     jail.prisonerproperty.locked_up = true
     jail.prisonerproperty.locked_up_throws = 2
     jail.always_action
-    jail.start_action.should be true
+    jail.start_action.should be false
     @monopoly.settings.players[0].money.should eq(1450)
     @monopoly.pot.money.should eq(50)
+    jail.prisonerproperty.locked_up.should eq(false)
+    jail.prisonerproperty.locked_up_throws.should eq(0)
   end
 
   it "8. WHen a player moves from an other space to jail, the player becomes prisoner" do

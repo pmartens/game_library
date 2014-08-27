@@ -23,7 +23,7 @@ module Monopoly
       @settings.players.each do |player|
         winner << player if !player.bankrupt?
       end
-      return winner.first if winner.count == 1
+      winner.first if winner.count == 1
     end
 
     protected

@@ -61,4 +61,63 @@ describe "Monopoly::Monopoly ->" do
     @monopoly.active_player.should eq(@monopoly.settings.players[1])
   end
 
+  it "9. When player starts on startposition and throws 4, he lands on incometax." do
+    allow(@monopoly.settings.dice).to receive(:value) {4}
+    allow(@monopoly.settings.dice).to receive(:double?) {false}
+    @monopoly.active_player.should eq(@monopoly.settings.players[0])
+    @monopoly.throw_dice
+    @monopoly.settings.players[0].position.should eq(4)
+    @monopoly.gameboard.space(4).name.should eq("incometax")
+  end
+
+  it "10. When player starts on position brink(3) and throws 7, he lands on space Jail (30)." do
+    allow(@monopoly.settings.dice).to receive(:value) {7}
+    allow(@monopoly.settings.dice).to receive(:double?) {false}
+    @monopoly.active_player.should eq(@monopoly.settings.players[0])
+    @monopoly.settings.players[0].position = 3
+    @monopoly.throw_dice
+    @monopoly.settings.players[0].position.should eq(30)
+    @monopoly.gameboard.space(30).name.should eq("Jail")
+  end
+
+  it "11. When player starts on position Barteljorisstraat (11) and throws 9, he lands on space freeparking (20)" do
+    allow(@monopoly.settings.dice).to receive(:value) {9}
+    allow(@monopoly.settings.dice).to receive(:double?) {false}
+    @monopoly.active_player.should eq(@monopoly.settings.players[0])
+    @monopoly.settings.players[0].position = 11
+    @monopoly.throw_dice
+    @monopoly.settings.players[0].position.should eq(20)
+    @monopoly.gameboard.space(20).name.should eq("freeparking")
+  end
+
+  it "12. When player starts on position kans (7) and throws 9, he lands on space Neude (16)" do
+    allow(@monopoly.settings.dice).to receive(:value) {9}
+    allow(@monopoly.settings.dice).to receive(:double?) {false}
+    @monopoly.active_player.should eq(@monopoly.settings.players[0])
+    @monopoly.settings.players[0].position = 7
+    @monopoly.throw_dice
+    @monopoly.settings.players[0].position.should eq(16)
+    @monopoly.gameboard.space(16).name.should eq("Neude")
+  end
+
+  it "13. When player starts on position Ketelstraat (8) and throws 9, he lands on space fonds (17)" do
+    allow(@monopoly.settings.dice).to receive(:value) {9}
+    allow(@monopoly.settings.dice).to receive(:double?) {false}
+    @monopoly.active_player.should eq(@monopoly.settings.players[0])
+    @monopoly.settings.players[0].position = 8
+    @monopoly.throw_dice
+    @monopoly.settings.players[0].position.should eq(17)
+    @monopoly.gameboard.space(17).name.should eq("fonds")
+  end
+
+  it "14. When player starts on position station south (5) and throws 8, he lands on space Zijlweg (13)" do
+    allow(@monopoly.settings.dice).to receive(:value) {8}
+    allow(@monopoly.settings.dice).to receive(:double?) {false}
+    @monopoly.active_player.should eq(@monopoly.settings.players[0])
+    @monopoly.settings.players[0].position = 5
+    @monopoly.throw_dice
+    @monopoly.settings.players[0].position.should eq(13)
+    @monopoly.gameboard.space(13).name.should eq("Zijlweg")
+  end
+
 end

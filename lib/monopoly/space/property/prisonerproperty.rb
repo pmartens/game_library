@@ -4,7 +4,6 @@ module Monopoly
       class PrisonerProperty
 
         attr_accessor :player
-        attr_accessor :last_changed
         attr_accessor :locked_up
         attr_accessor :locked_up_throws
         attr_accessor :double_throws

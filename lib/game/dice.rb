@@ -3,7 +3,7 @@ module Game
 
     def initialize
       @dice = []
-      @value = 0
+      @value = []
     end
 
     def add_die(die)
@@ -23,8 +23,18 @@ module Game
     end
 
     def value
-      return 0 if @value.empty?
+      return 0 if @value.nil?
       @value.inject(:+)
     end
+
+    def values
+      if @value.nil?
+         @dice.each do |die|
+           @value << 0
+         end
+      end
+      @value
+    end
+
   end
 end

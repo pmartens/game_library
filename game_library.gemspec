@@ -7,11 +7,11 @@ require "game_library/version"
 Gem::Specification.new do |s|
   s.name        = "game_library"
   s.version     = GameLibrary::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of GameLibrary."
-  s.description = "TODO: Description of GameLibrary."
+  s.authors     = ["Pieter Martens"]
+  s.email       = ["pieter@cg.nl"]
+  s.homepage    = "http:\\www.cg.nl"
+  s.summary     = "Game library to make simple Ruby/Rails games."
+  s.description = "Description of GameLibrary."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]

@@ -14,13 +14,13 @@ module Monopoly
         end
 
         def land_action
-          return if @boardgame.active_player == @owner
           if @owner.nil?
             @boardgame.active_player.pay_money(@sale_price)
             @owner = @boardgame.active_player unless @boardgame.active_player.bankrupt?
           else
-            @owner.receive_money(@boardgame.active_player.pay_money(interest))
+            @owner.receive_money(@boardgame.active_player.pay_money(interest)) unless @boardgame.active_player == @owner
           end
+          super
         end
 
         :protected

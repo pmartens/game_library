@@ -5,10 +5,6 @@ module Game
 
         # Condition that is always true
         class Always < Condition
-
-          def satisfy(space)
-          end
-
         end
 
       end

@@ -7,7 +7,6 @@ module Game
           @stack = []
           @boardgame = boardgame
           @default_action_list = default_actionlist
-          @halt = false
         end
 
         def add_extra_throw(actionlist=nil)
@@ -15,22 +14,23 @@ module Game
         end
 
         def execute
+          @halt = false
           add_extra_throw if @stack.empty?
           action_list = @stack.pop
           action_list.each do |action|
             for i in 0..(@boardgame.gameboard.space_count-1)
-              action.execute(@boardgame.gameboard.space(i))
+              result = action.execute(@boardgame.gameboard.space(i))
+              @halt = result unless result.nil?
             end
           end
         end
 
         def halt?
-          return @halt
+          @halt
         end
 
         def turn_finished?
-          #binding.pry
-          return @stack.empty?
+          @stack.empty?
         end
 
       end

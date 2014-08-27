@@ -41,7 +41,7 @@ module Monopoly
           p.double_throws = 0
           @boardgame.active_player.position = @boardgame.gameboard.space_index(self)
         end
-        return p.locked_up ? false : true
+        p.locked_up
       end
 
       def prisonerproperty
