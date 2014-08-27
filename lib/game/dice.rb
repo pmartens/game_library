@@ -11,10 +11,7 @@ module Game
     end
 
     def throw_dice
-      @value = []
-      @dice.each do |die|
-        @value << die.throw_die
-      end
+      @value = @dice.map{|die| die.throw_die}
       @value.inject(:+)
     end
 
