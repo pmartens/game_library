@@ -28,12 +28,7 @@ module Game
     end
 
     def values
-      if @value.nil?
-         @dice.each do |die|
-           @value << 0
-         end
-      end
-      @value
+      @value.nil ? Array.new(@dice.count) { 0 } : @value
     end
 
   end
