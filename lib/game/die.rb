@@ -9,6 +9,7 @@ module Game
     end
 
     def add_values(values)
+      # use map instead of each
       values.each do |value|
         @values << value
       end
